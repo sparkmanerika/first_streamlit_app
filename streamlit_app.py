@@ -4,7 +4,7 @@ import requests
 import snowflake.connector
 from urllib.error import URLError
 
-#DISPLAY BREAKFAST MENU
+#####################BREAKFAST MENU###############################
 streamlit.title('My Parents New Healthy Diner')
 streamlit.header('Breakfast Menu')
 streamlit.text(' 🥣 Omega 3 & Blueberry Oatmeal')
@@ -12,7 +12,7 @@ streamlit.text(' 🥗 Kale, Spinach & Rocket Smoothie')
 streamlit.text(' 🐔Hard-Boiled Free-Range Egg')
 streamlit.text(' 🥑🍞 Avocado Toast')
 
-#BUILD YOUR OWN SMOOTHIE
+###################BUILD YOUR OWN SMOOTHIE########################
 streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
 
 #IMPORT FRUIT LIST FROM UNI LIST
@@ -27,6 +27,7 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 streamlit.dataframe(fruits_to_show)
 
 
+#############################FRUITY VICE INFO#########################
 #CREATE THE REPEATABLE CODE BLOCK (CALLED A FUNCTION)
 def get_fruityvice_data(this_fruit_choice):
   fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + this_fruit_choice)     
@@ -46,8 +47,7 @@ try:
 except URLError as e:   
   streamlit.error()  
   
-#streamlit.stop()
-
+########################FRUIT LOAD LIST#############################
 streamlit.header("The fruit load list contains")
 #SNOWFLAKE-RELATED FUNCTIONS
 def get_fruit_load_list():
